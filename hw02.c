@@ -26,7 +26,78 @@ int homeLobby_(){
     else{
         return 0;} 
 }
+
 int askPosition_();
+
+int rule4(int i,int j,int k,int m,int color){
+   //i,j是實際的位置從0到7
+    if(i>k && j>m){
+        int s;
+        for(s=1;i-s>k && j-s>m ;s++){
+            chessBoard[i-s][j-s]=color;
+            printf("(%d,%d)",i-s,j-s);
+        }
+    }
+
+    if(i>k && j<m){
+        int s;
+        for(s=1;i-s>k && j+s<m ;s++){
+            chessBoard[i-s][j+s]=color;
+            printf("(%d,%d)",i-s,j+s);
+        }
+    } 
+
+    if(i<k && j>m){
+        int s;
+        for(s=1;i+s<k && j-s>m ;s++){
+            chessBoard[i+s][j-s]=color;
+            printf("(%d,%d)",i+s,j-s);
+        }
+    } 
+
+    if(i<k && j<m){
+        int s;
+        for(s=1;i+s<k && j+s<m ;s++){
+            chessBoard[i+s][j+s]=color;
+            printf("(%d,%d)",i+s,j+s);
+        }
+    } 
+
+    if(i==k){
+        if(j>m){
+            int s;
+            for(s=1; j-s>m ;s++){
+                chessBoard[i][j-s]=color;
+                printf("(%d,%d)",i,j-s);
+            }
+        }
+        else{
+            int s;
+            for(s=1;j+s<m ;s++){
+                chessBoard[i][j+s]=color;
+                printf("(%d,%d)",i,j+s);
+            }
+        }
+    }
+
+    if(j==m){
+        if(i>k){
+            int s;
+            for(s=1;i-s>k;s++){
+                chessBoard[i-s][j]=color;
+                printf("(%d,%d)",i-s,j);
+            }
+        }
+        else{
+            int s;
+            for(s=1;i+s<k ;s++){
+                chessBoard[i+s][j]=color;
+                printf("(%d,%d)",i+s,j);
+            }
+        }
+    } 
+}
+
 
 int rule3(int i,int j,int color){
     int newx,newy;
@@ -37,6 +108,7 @@ int rule3(int i,int j,int color){
     scanf("%s",&answer2);
     if(strcmp(answer2,"y")==0){
         chessBoard[newx-1][newy-1]=color;
+        rule4(i,j,newx-1,newy-1,color);
         chessBoard_();
         askPosition_();
     }
@@ -191,10 +263,6 @@ int rule1(int i,int j){
     }
 }
 
-
-
-
-
 int askPosition_(){
     int i,j,a1,b1;
     printf("Please enter the position.\n");
@@ -227,6 +295,6 @@ int askPosition_(){
 
 int main(){
     homeLobby_();
-    askPosition_();   
+    askPosition_();
     return 0;    
 }
