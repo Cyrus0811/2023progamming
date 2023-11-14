@@ -4,6 +4,7 @@
 #define black 1
 int askPosition_();
 
+
 int chessBoard[8][8]={
                     {0,0,0,0,0,0,0,0},
                     {0,0,0,0,0,0,0,0},
