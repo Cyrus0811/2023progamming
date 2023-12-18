@@ -3,6 +3,7 @@
 #define EQU(p,q) (p.x==q.x,p.y==q.y) 
 typedef struct axis axis_t;
 typedef struct stack stack_t;
+
 char mark[10][10]={0};
 int maze[10][10] ={
   { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
