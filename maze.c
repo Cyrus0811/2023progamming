@@ -4,7 +4,7 @@
 typedef struct axis axis_t;
 typedef struct stack stack_t;
 
-char mark[10][10]={0};
+char path[10][10]={0};
 int maze[10][10] ={
   { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
   { 0, 0, 0, 1, 1, 0, 1, 1, 0, 1 },
@@ -60,8 +60,8 @@ axis_t findMove(stack_t *stackPtr,axis_t position){
                 space.y=position.y+j;
 
                 if(maze[space.x][space.y]==0 &&
-                    mark[space.x][space.y]!=2){
-                    mark[space.x][space.y]=2;
+                    path[space.x][space.y]!=2){
+                    path[space.x][space.y]=2;
                     push(stackPtr,space);
                     }
             }
@@ -79,7 +79,7 @@ int main(){
 
     myStack.top=-1;
     currentPosition=entry;
-    mark[currentPosition.x][currentPosition.y]=2;
+    path[currentPosition.x][currentPosition.y]=2;
 
     while (!EQU(currentPosition,exit)){
         currentPosition=findMove(&myStack,currentPosition);
@@ -88,7 +88,7 @@ int main(){
             printf("no Exit\n");
             for(int i=0;i<10;i++){
                 for(int j=0;j<10;j++){
-                    printf(" %d ",mark[i][j]+maze[i][j]);
+                    printf(" %d ",path[i][j]+maze[i][j]);
                 }
                 printf("\n");
             }
