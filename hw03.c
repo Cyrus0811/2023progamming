@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #include <string.h>
-/* https://www.runoob.com/cprogramming/c-standard-library-string-h.html
+/* source: https://www.runoob.com/cprogramming/c-standard-library-string-h.html
 
 1. int __cdecl strcmp(const char *_Str1,const char *_Str2);
     把 str1 所指向的字符串和 str2 所指向的字符串进行比较
@@ -87,4 +87,82 @@ int main ()
 }
 
 */
+
+#include <math.h>
+/* source: https://www.runoob.com/cprogramming/c-standard-library-string-h.html
+1. double sin(double x)
+     返回弧度角 x 的正弦
+//ex:
+#define PI 3.14159265
+
+int main (){
+   double x, ret, val;
+   x = 45.0;
+   val = PI / 180;
+   ret = sin(x*val);
+   printf("%lf 的正弦是 %lf 度", x, ret);   
+   return(0);
+}
+
+2. double cos(double x)
+    返回弧度角 x 的余弦
+//ex:
+int main (){
+   double x, ret, val;
+   x = 60.0;
+   val = PI / 180.0;
+   ret = cos( x*val );
+   printf("%lf 的余弦是 %lf 度\n", x, ret);
+   x = 90.0;
+   val = PI / 180.0;
+   ret = cos( x*val );
+   printf("%lf 的余弦是 %lf 度\n", x, ret);   
+   return(0);
+}
+
+3. double exp(double x)
+     返回 e 的 x 次幂的值
+//ex:
+  int main (){
+   double x = 0;  
+   printf("e 的 %lf 次幂是 %lf\n", x, exp(x));
+   printf("e 的 %lf 次幂是 %lf\n", x+1, exp(x+1));
+   printf("e 的 %lf 次幂是 %lf\n", x+2, exp(x+2));   
+   return(0);
+}
+
+4. double log(double x)
+    返回 x 的自然对数（基数为 e 的对数）
+//ex:
+int main (){
+   double x, ret;
+   x = 2.7;
+   ret = log(x);
+   printf("log(%lf) = %lf", x, ret);   
+   return(0);
+}
+
+5. double floor(double x)
+    返回小于或等于 x 的最大的整数值
+//ex:
+int main (){
+   float val1, val2, val3, val4;
+   val1 = 1.6;
+   val2 = 1.2;
+   val3 = 2.8;
+   val4 = 2.3;
+   printf("Value1 = %.1lf\n", floor(val1));
+   printf("Value2 = %.1lf\n", floor(val2));
+   printf("Value3 = %.1lf\n", floor(val3));
+   printf("Value4 = %.1lf\n", floor(val4));   
+   return(0);
+}
+
+*/
+
+
+
+
+
+
 
